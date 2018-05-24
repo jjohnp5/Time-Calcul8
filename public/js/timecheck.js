@@ -1,5 +1,5 @@
 
-moment().format();
+moment().tz("America/Dallas").format();
 $('#error').hide();
 updateCollective();
 $("#hrSubmit").on("click", function () {
