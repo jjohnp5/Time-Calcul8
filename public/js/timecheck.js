@@ -1,5 +1,5 @@
 
-moment().tz("America/Dallas").format();
+moment().format();
 $('#error').hide();
 updateCollective();
 $("#hrSubmit").on("click", function () {
@@ -8,6 +8,7 @@ $("#hrSubmit").on("click", function () {
   var clockIn = $("#clockIn").val();
   var clockOut = $("#clockOut").val();
   var date = document.querySelector('#date').value;
+  console.log(moment(date))
   var noteAdd = $("#noteAdd").val();
 
 
@@ -17,7 +18,7 @@ $("#hrSubmit").on("click", function () {
 
     clockIn: clockIn,
     clockOut: clockOut,
-    date: moment(date).format(),
+    date: moment(date).format('YYYY-MM-DD'),
     noteAdd: noteAdd
   };
   if(date && clockIn && clockOut){
