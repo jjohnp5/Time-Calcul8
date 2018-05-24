@@ -17,7 +17,7 @@ $("#hrSubmit").on("click", function () {
 
     clockIn: clockIn,
     clockOut: clockOut,
-    date: moment(date).format(),
+    date: moment(date).local(),
     noteAdd: noteAdd
   };
   if(date && clockIn && clockOut){
