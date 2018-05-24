@@ -144,7 +144,7 @@ router.post('/api/employees/addpunch/:id',middleware.isManager, (req, res) => {
     console.log(endDate);
     date.hour(req.body.time_punch / 100);
     console.log(date);
-    date.format('YYYY-MM-DD HH:mm:ss')
+    date.format('YYYY-MM-DD HH:mm:ss') 
     console.log(date);
     db.TimeSheet.findAll({
         where: {
