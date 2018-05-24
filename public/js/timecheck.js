@@ -7,7 +7,7 @@ $("#hrSubmit").on("click", function () {
   // Grabs user input
   var clockIn = $("#clockIn").val();
   var clockOut = $("#clockOut").val();
-  var date = $("#date").val()
+  var date = document.querySelector('#date').value;
   var noteAdd = $("#noteAdd").val();
 
 
@@ -17,7 +17,7 @@ $("#hrSubmit").on("click", function () {
 
     clockIn: clockIn,
     clockOut: clockOut,
-    date: moment(date).format(),
+    date: moment(date).format('YYYY-MM-DD'),
     noteAdd: noteAdd
   };
   if(date && clockIn && clockOut){
