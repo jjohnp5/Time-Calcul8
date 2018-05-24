@@ -98,9 +98,9 @@ router.post('/api/employees/timesheet/edit/:id', (req, res) => {
 })
 
 router.post('/api/employees/addpunch', (req, res) => {
-    let date = moment(req.body.date).hour(req.body.time_punch / 100).format('YYYY-MM-DD HH:mm:ss');
-    let testDate = moment(req.body.date).utc().format();
-    let endDate = moment(req.body.date).utc().hour(moment(req.body.date).utc().hour()+23).format();
+    let date = moment.utc(req.body.date).hour(req.body.time_punch / 100).format('YYYY-MM-DD HH:mm:ss');
+    let testDate = moment.utc(req.body.date).format();
+    let endDate = moment.utc(req.body.date).hour(moment(req.body.date).utc().hour()+23).format();
     console.log(testDate);
     console.log(date);
     console.log(date);
@@ -137,9 +137,9 @@ router.post('/api/employees/addpunch', (req, res) => {
 //use for manager adding in missed time for employee
 
 router.post('/api/employees/addpunch/:id',middleware.isManager, (req, res) => {
-    let date = moment(req.body.date).hour(req.body.time_punch / 100).format('YYYY-MM-DD HH:mm:ss');
-    let testDate = moment(req.body.date).utc().format();
-    let endDate = moment(req.body.date).utc().hour(moment(req.body.date).utc().hour()+23).format();
+    let date = moment.utc(req.body.date).hour(req.body.time_punch / 100).format('YYYY-MM-DD HH:mm:ss');
+    let testDate = moment.utc(req.body.date).format();
+    let endDate = moment.utc(req.body.date).hour(moment(req.body.date).utc().hour()+23).format();
     console.log(testDate);
     console.log(endDate);
     console.log(date);
