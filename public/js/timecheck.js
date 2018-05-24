@@ -17,7 +17,7 @@ $("#hrSubmit").on("click", function () {
 
     clockIn: clockIn,
     clockOut: clockOut,
-    date: moment(date).local().format('YYYY-MM-DD'),
+    date: moment(date).format(),
     noteAdd: noteAdd
   };
   if(date && clockIn && clockOut){
@@ -78,6 +78,7 @@ function updateCollective() {
       let entries = 0;
 
       data.forEach(t => {
+        console.log(moment(t.createdAt).format());
         if (currentDate.indexOf(moment(t.createdAt).format('YYYY-MM-DD')) === -1) {
           currentDate.push(moment(t.createdAt).format('YYYY-MM-DD'));
         }
