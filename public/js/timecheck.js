@@ -86,7 +86,7 @@ function updateCollective() {
       })
       currentDate.forEach(date => {
         let dateRow = $(`<tr class="${date}">`)
-        dateRow.append($(`<td>`).text(moment().utc(date).format('YYYY MMM DD')))
+        dateRow.append($(`<td>`).text(moment(date).utc().format('YYYY MMM DD')))
         dateRow.append($(`<td class="in">`));
         dateRow.append($(`<td class="out">`))
         dateRow.append($(`<td class="total">`))
