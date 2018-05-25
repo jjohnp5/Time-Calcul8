@@ -56,12 +56,19 @@ $("#hrSubmit").on("click", function () {
   }else{
     $('#error').text('Start Time, End Time and Date are required. Use this only if you missed both clock in and clock out.').show();
   }
-  
+  clockIn = $("#clockIn").val("");
+  clockOut = $("#clockOut").val("");
+  date = $("#date").val("")
+  noteAdd = $("#noteAdd").val("");
+
 
 });
 
 $("#clearInputBTN").click(function() {
-  $("#clockIn").html("");
+  clockIn = $("#clockIn").val("");
+  clockOut = $("#clockOut").val("");
+  date = $("#date").val("")
+  noteAdd = $("#noteAdd").val("");
 
 });
 

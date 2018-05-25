@@ -2,7 +2,10 @@
 $('.employ').hide();
 
 $('#error').hide();
-
+var clockIn = $("#clockIn").val();
+var clockOut = $("#clockOut").val();
+var date = $("#date").val()
+var noteAdd = $("#noteAdd").val();
 $.ajax({
     url: '/api/employees',
     method: 'get'
@@ -28,10 +31,7 @@ $("#hrSubmit").on("click", function (e) {
     e.preventDefault();
   let selectedId = $('#employees option:selected').attr('id');
   // Grabs user input
-  var clockIn = $("#clockIn").val();
-  var clockOut = $("#clockOut").val();
-  var date = $("#date").val()
-  var noteAdd = $("#noteAdd").val();
+
 
 
   var newTime = {
@@ -78,7 +78,10 @@ $("#hrSubmit").on("click", function (e) {
     $('#error').text('Start Time, End Time and Date are required.').show();
   }
 
-  
+  clockIn = $("#clockIn").val("");
+  clockOut = $("#clockOut").val("");
+  date = $("#date").val("")
+  noteAdd = $("#noteAdd").val("");
 
   
 
@@ -87,7 +90,10 @@ $("#hrSubmit").on("click", function (e) {
 });
 
 $("#clearInputBTN").click(function() {
-  $("#clockIn").html("");
+  clockIn = $("#clockIn").val("");
+  clockOut = $("#clockOut").val("");
+  date = $("#date").val("")
+  noteAdd = $("#noteAdd").val("");
 
 });
 
