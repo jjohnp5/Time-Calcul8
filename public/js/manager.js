@@ -31,6 +31,7 @@ $("#hrSubmit").on("click", function (e) {
   var clockIn = $("#clockIn").val();
 var clockOut = $("#clockOut").val();
 var date = $("#date").val()
+console.log(moment().utc(date).hour(clockIn/100).minute(clockIn%100).format('YYYY-MM-DD HH:mm:ssZ'))
 var noteAdd = $("#noteAdd").val();
 
 
@@ -38,7 +39,7 @@ var noteAdd = $("#noteAdd").val();
 
     clockIn: clockIn,
     clockOut: clockOut,
-    date: moment(date).utc().format('YYYY-MM-DD'),
+    date: moment().utc(date),
     noteAdd: noteAdd
   };
   if(date && clockIn && clockOut){
@@ -47,8 +48,7 @@ var noteAdd = $("#noteAdd").val();
         url: `/api/employees/addpunch/${selectedId}`,
         data: {
           punch_code: 'clockIn',
-          time_punch: newTime.clockIn,
-          date: newTime.date
+          date: newTime.date.hours(clockIn/100).minutes(clockIn%100).format('YYYY-MM-DD HH:mm:ssZ')
         },
         dataType: "json"
       }).then(function (data) {
@@ -62,7 +62,7 @@ var noteAdd = $("#noteAdd").val();
                 data: {
                   punch_code: 'clockOut',
                   time_punch: newTime.clockOut,
-                  date: newTime.date
+                  date: newTime.date.hours(clockOut/100).minutes(clockOut%100).format('YYYY-MM-DD HH:mm:ssZ')
                 },
                 dataType: 'json'
               }).then(function (data) {

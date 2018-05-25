@@ -120,7 +120,7 @@ router.post('/api/employees/addpunch', (req, res) => {
             db.TimeSheet.create({
                 UserId: req.user.id,
                 punch_code: req.body.punch_code,
-                createdAt: date
+                createdAt: req.body.date
             }).then(data => {
                 res.json(data);
             }).catch(err => {
@@ -137,7 +137,7 @@ router.post('/api/employees/addpunch', (req, res) => {
 //use for manager adding in missed time for employee
 
 router.post('/api/employees/addpunch/:id',middleware.isManager, (req, res) => {
-    let date = moment.utc(req.body.date).hour(req.body.time_punch / 100).format('YYYY-MM-DD HH:mm:ss');
+    
     let testDate = moment(req.body.date).format();
     let endDate = moment(req.body.date).hour(moment(req.body.date).utc().hour()+23).format();
     console.log(testDate);
@@ -161,7 +161,7 @@ router.post('/api/employees/addpunch/:id',middleware.isManager, (req, res) => {
             db.TimeSheet.create({
                 UserId: req.params.id,
                 punch_code: req.body.punch_code,
-                createdAt: date
+                createdAt: req.body.date
             }).then(data => {
                 res.json(data);
             }).catch(err => {
