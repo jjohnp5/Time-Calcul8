@@ -2,10 +2,7 @@
 $('.employ').hide();
 
 $('#error').hide();
-var clockIn = $("#clockIn").val();
-var clockOut = $("#clockOut").val();
-var date = $("#date").val()
-var noteAdd = $("#noteAdd").val();
+
 $.ajax({
     url: '/api/employees',
     method: 'get'
@@ -31,7 +28,10 @@ $("#hrSubmit").on("click", function (e) {
     e.preventDefault();
   let selectedId = $('#employees option:selected').attr('id');
   // Grabs user input
-
+  var clockIn = $("#clockIn").val();
+var clockOut = $("#clockOut").val();
+var date = $("#date").val()
+var noteAdd = $("#noteAdd").val();
 
 
   var newTime = {
