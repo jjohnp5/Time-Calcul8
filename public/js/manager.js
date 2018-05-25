@@ -126,7 +126,7 @@ function updateCollective(id) {
         })
         currentDate.forEach(date => {
           let dateRow = $(`<tr class="${date}">`)
-          dateRow.append($(`<td>`).text(moment(date).format('YYYY MMM DD')))
+          dateRow.append($(`<td>`).text(moment(date).utc().format('YYYY MMM DD')))
           dateRow.append($(`<td class="in">`));
           dateRow.append($(`<td class="out">`))
           dateRow.append($(`<td class="total">`))
@@ -143,10 +143,10 @@ function updateCollective(id) {
               }
             }
           })
-          $(`.${date} .in`).text(moment(punchIn).format('hh:mm'))
+          $(`.${date} .in`).text(moment(punchIn).utc().format('hh:mm'))
           if (punchOut) {
   
-            $(`.${date} .out`).text(moment(punchOut).format('hh:mm'))
+            $(`.${date} .out`).text(moment(punchOut).utc().format('hh:mm'))
             let x = moment(punchOut).diff(moment(punchIn), 'hours')
 
             sumTotalArr.push(x);
