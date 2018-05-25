@@ -38,7 +38,7 @@ $("#hrSubmit").on("click", function (e) {
 
     clockIn: clockIn,
     clockOut: clockOut,
-    date: date,
+    date: moment(date).utc().format('YYYY-MM-DD'),
     noteAdd: noteAdd
   };
   if(date && clockIn && clockOut){
@@ -70,6 +70,10 @@ $("#hrSubmit").on("click", function (e) {
                   $('#error').text(data.message).show();
                 }
                 updateCollective(selectedId);
+                $("#clockIn").val("");
+                $("#clockOut").val("");
+                $("#date").val("")
+                $("#noteAdd").val("");
               })
         }
         
@@ -78,10 +82,7 @@ $("#hrSubmit").on("click", function (e) {
     $('#error').text('Start Time, End Time and Date are required.').show();
   }
 
-  $("#clockIn").val("");
-  $("#clockOut").val("");
-  $("#date").val("")
-  $("#noteAdd").val("");
+
 
   
 

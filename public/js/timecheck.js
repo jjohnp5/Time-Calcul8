@@ -50,25 +50,26 @@ $("#hrSubmit").on("click", function () {
             $('#error').text(data.message).show();
           }
           updateCollective();
+          $("#clockIn").val("");
+          $("#clockOut").val("");
+          $("#date").val("")
+          $("#noteAdd").val("");
         })
       }
     });
   }else{
     $('#error').text('Start Time, End Time and Date are required. Use this only if you missed both clock in and clock out.').show();
   }
-  clockIn = $("#clockIn").val("");
-  clockOut = $("#clockOut").val("");
-  date = $("#date").val("")
-  noteAdd = $("#noteAdd").val("");
+
 
 
 });
 
 $("#clearInputBTN").click(function() {
-  clockIn = $("#clockIn").val("");
-  clockOut = $("#clockOut").val("");
-  date = $("#date").val("")
-  noteAdd = $("#noteAdd").val("");
+  $("#clockIn").val("");
+  $("#clockOut").val("");
+  $("#date").val("")
+  $("#noteAdd").val("");
 
 });
 
