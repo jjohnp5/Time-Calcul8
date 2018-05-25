@@ -78,10 +78,10 @@ $("#hrSubmit").on("click", function (e) {
     $('#error').text('Start Time, End Time and Date are required.').show();
   }
 
-  clockIn = $("#clockIn").val("");
-  clockOut = $("#clockOut").val("");
-  date = $("#date").val("")
-  noteAdd = $("#noteAdd").val("");
+  $("#clockIn").val("");
+  $("#clockOut").val("");
+  $("#date").val("")
+  $("#noteAdd").val("");
 
   
 
@@ -90,10 +90,10 @@ $("#hrSubmit").on("click", function (e) {
 });
 
 $("#clearInputBTN").click(function() {
-  clockIn = $("#clockIn").val("");
-  clockOut = $("#clockOut").val("");
-  date = $("#date").val("")
-  noteAdd = $("#noteAdd").val("");
+  $("#clockIn").val("");
+  $("#clockOut").val("");
+  $("#date").val("")
+  $("#noteAdd").val("");
 
 });
 
