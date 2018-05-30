@@ -59,7 +59,8 @@ passport.deserializeUser(function (id, done) {
         done(null, user);
     });
 });
-app.use(express.static("public"));
+
+app.use('/static', express.static(__dirname + '/public'));
 app.use(session({ secret: "money", resave: false, saveUninitialized: false }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
