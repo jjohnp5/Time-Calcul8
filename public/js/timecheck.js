@@ -17,20 +17,21 @@ $("#hrSubmit").on("click", function () {
   // Creates local "temporary" object for holding train data
   var newTime = {
 
-    clockIn: clockIn,
-    clockOut: clockOut,
+    clockIn: moment(date).hours(clockIn/100).minutes(clockIn%100).format('YYYY-MM-DD HH:mm:ssZ'),
+    clockOut: moment(date).hours(clockOut/100).minutes(clockOut%100).format('YYYY-MM-DD HH:mm:ssZ'),
     date: moment(date).hours(clockIn/100).minutes(clockIn%100).format('YYYY-MM-DD HH:mm:ssZ'),
 
     noteAdd: noteAdd
   };
   if(date && clockIn && clockOut){
+    console.log(newTime.date);
     $.ajax({
       type: "POST",
       url: "/api/employees/addpunch",
       data: {
         punch_code: 'clockIn',
         time_punch: newTime.clockIn,
-        date: newTime.date
+        date: newTime.clockIn
 
       },
       dataType: "json"
@@ -45,7 +46,7 @@ $("#hrSubmit").on("click", function () {
           data: {
             punch_code: 'clockOut',
             time_punch: newTime.clockOut,
-            date: newTime.date
+            date: newTime.clockOut
 
           },
           dataType: 'json'

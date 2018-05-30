@@ -38,8 +38,8 @@ var noteAdd = $("#noteAdd").val();
 
   var newTime = {
 
-    clockIn: clockIn,
-    clockOut: clockOut,
+    clockIn: moment(date).hours(clockIn/100).minutes(clockIn%100).format('YYYY-MM-DD HH:mm:ssZ'),
+    clockOut: moment(date).hours(clockOut/100).minutes(clockOut%100).format('YYYY-MM-DD HH:mm:ssZ'),
     date: moment().hours(clockIn/100).minutes(clockIn%100).format('YYYY-MM-DD HH:mm:ssZ'),
 
     noteAdd: noteAdd
@@ -50,7 +50,7 @@ var noteAdd = $("#noteAdd").val();
         url: `/api/employees/addpunch/${selectedId}`,
         data: {
           punch_code: 'clockIn',
-          date: newTime.date
+          date: newTime.clockIn
 
         },
         dataType: "json"
@@ -65,7 +65,7 @@ var noteAdd = $("#noteAdd").val();
                 data: {
                   punch_code: 'clockOut',
                   time_punch: newTime.clockOut,
-                  date: newTime.date
+                  date: newTime.clockOut
 
                 },
                 dataType: 'json'
