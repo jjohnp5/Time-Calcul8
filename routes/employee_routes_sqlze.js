@@ -136,8 +136,10 @@ router.post('/api/employees/addpunch', (req, res) => {
 //use for manager adding in missed time for employee
 
 router.post('/api/employees/addpunch/:id',middleware.isManager, (req, res) => {
+
     let testDate = moment(req.body.date).format();
     let endDate = moment(req.body.date).hour(moment(req.body.date).utc().hour()+23).format();
+
 
     console.log(date);
     db.TimeSheet.findAll({
