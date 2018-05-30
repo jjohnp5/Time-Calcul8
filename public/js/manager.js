@@ -32,7 +32,6 @@ $("#hrSubmit").on("click", function (e) {
 
 var clockOut = $("#clockOut").val();
 var date = $("#date").val()
-console.log(moment().utc(date).hour(clockIn/100).minute(clockIn%100).format('YYYY-MM-DD HH:mm:ssZ'))
 var noteAdd = $("#noteAdd").val();
 
 
