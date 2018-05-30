@@ -41,7 +41,7 @@ var noteAdd = $("#noteAdd").val();
 
     clockIn: clockIn,
     clockOut: clockOut,
-    date: moment().utc(date).hours(clockIn/100).minutes(clockIn%100).format('YYYY-MM-DD HH:mm:ssZ'),
+    date: moment().hours(clockIn/100).minutes(clockIn%100).format('YYYY-MM-DD HH:mm:ssZ'),
 
     noteAdd: noteAdd
   };
