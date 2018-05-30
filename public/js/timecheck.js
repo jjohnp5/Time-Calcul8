@@ -19,7 +19,7 @@ $("#hrSubmit").on("click", function () {
 
     clockIn: clockIn,
     clockOut: clockOut,
-    date: moment(date).utc(date),
+    date: moment(date).hours(clockIn/100).minutes(clockIn%100).format('YYYY-MM-DD HH:mm:ssZ'),
 
     noteAdd: noteAdd
   };
@@ -30,7 +30,7 @@ $("#hrSubmit").on("click", function () {
       data: {
         punch_code: 'clockIn',
         time_punch: newTime.clockIn,
-        date: newTime.date.hours(clockIn/100).minutes(clockIn%100).format('YYYY-MM-DD HH:mm:ssZ')
+        date: newTime.date
 
       },
       dataType: "json"
@@ -45,7 +45,7 @@ $("#hrSubmit").on("click", function () {
           data: {
             punch_code: 'clockOut',
             time_punch: newTime.clockOut,
-            date: newTime.date.hour(clockOut/100).minutes(clockOut%100).format('YYYY-MM-DD HH:mm:ssZ')
+            date: newTime.date
 
           },
           dataType: 'json'
